@@ -546,6 +546,12 @@ export type CatchTheKraken = {
   hunger: InventoryItemName;
 };
 
+export type SpringBlossom = {
+  weeklyFlower: FlowerName;
+  collectedFlowerPages: number[];
+  tradedFlowerShop?: boolean;
+};
+
 export type FarmHand = {
   equipped: BumpkinParts;
 };
@@ -918,6 +924,7 @@ export interface GameState {
   buds?: Record<number, Bud>;
 
   christmas?: Christmas;
+  springBlossom: Record<number, SpringBlossom>;
 }
 
 export interface Context {
