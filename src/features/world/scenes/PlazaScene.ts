@@ -256,7 +256,9 @@ export class PlazaScene extends BaseScene {
 
     this.initialiseNPCs(PLAZA_BUMPKINS);
 
-    PAGE_POSITIONS.forEach(({ x, y }) => {
+    PAGE_POSITIONS.forEach(({ x, y }, index) => {
+      const pageNumber = index + 1;
+
       const page = new Page({ x, y, scene: this });
       page.setDepth(1000000);
       this.physics.world.enable(page);
@@ -272,7 +274,7 @@ export class PlazaScene extends BaseScene {
           chime.play({ loop: false, volume: 0.1 });
 
           interactableModalManager.open("page_discovered");
-          this.gameService.send("page", { page });
+          this.gameService.send("flowerPage.discovered", { id: pageNumber });
         }
       );
     });
