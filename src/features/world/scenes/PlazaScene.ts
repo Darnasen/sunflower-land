@@ -15,6 +15,8 @@ import { budImageDomain } from "features/island/collectibles/components/Bud";
 import { Page } from "../containers/Page";
 import { BumpkinContainer } from "../containers/BumpkinContainer";
 import { SOUNDS } from "assets/sound-effects/soundEffects";
+import { hasFeatureAccess } from "lib/flags";
+import { TEST_FARM } from "features/game/lib/constants";
 
 export const PLAZA_BUMPKINS: NPCBumpkin[] = [
   {
@@ -25,7 +27,7 @@ export const PLAZA_BUMPKINS: NPCBumpkin[] = [
   {
     x: 815,
     y: 213,
-    npc: "poppy",
+    npc: hasFeatureAccess(TEST_FARM, "FLOWER_SHOP") ? "poppy" : "frankie",
     direction: "left",
   },
   {
