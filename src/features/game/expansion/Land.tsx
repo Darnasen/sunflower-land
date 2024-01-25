@@ -45,6 +45,8 @@ import { Bud } from "features/island/buds/Bud";
 import { Fisherman } from "features/island/fisherman/Fisherman";
 import { VisitingHud } from "features/island/hud/VisitingHud";
 import { Airdrop } from "./components/Airdrop";
+import { WalkingNPC } from "features/island/bumpkin/components/WalkingNPC";
+import { NPC_WEARABLES } from "lib/npcs";
 
 const IMAGE_GRID_WIDTH = 36;
 
@@ -641,6 +643,8 @@ export const Land: React.FC = () => {
               />
             )}
             {!landscaping && <UpcomingExpansion />}
+
+            <WalkingNPC parts={NPC_WEARABLES.birdie} />
 
             <div
               className={classNames(
