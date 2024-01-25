@@ -1,4 +1,4 @@
-import { GameState, InventoryItemName } from "../types/game";
+import { GameState, InventoryItemName, IslandType } from "../types/game";
 import { Coordinates } from "../expansion/components/MapPlacement";
 
 export type ExpandLandAction = {
@@ -987,4 +987,57 @@ export const EXPANSION_REQUIREMENTS: Record<number, Requirements> = {
   21: LAND_21_REQUIREMENTS,
   22: LAND_22_REQUIREMENTS,
   23: LAND_23_REQUIREMENTS,
+};
+
+/**
+ * Minimum Bumpkin level to work on a land.
+ * Prevents abuse of bumpkin swapping and reuse
+ */
+export const BUMPKIN_EXPANSIONS_LEVEL: Record<
+  IslandType,
+  Record<number, number>
+> = {
+  basic: {
+    3: 1,
+    4: 1,
+    5: 1,
+    6: 1,
+    7: 1,
+    8: 3,
+    9: 3,
+    10: 5,
+    11: 12,
+    12: 17,
+    13: 20,
+    14: 23,
+    15: 25,
+    16: 30,
+    17: 30,
+    18: 30,
+    19: 40,
+    20: 40,
+    21: 45,
+    22: 45,
+    23: 50,
+  },
+  spring: {
+    4: 10,
+    5: 12,
+    6: 13,
+    7: 15,
+    8: 17,
+    9: 20,
+    10: 23,
+    11: 25,
+    12: 25,
+    13: 30,
+    14: 30,
+    15: 35,
+    16: 35,
+    17: 40,
+    18: 40,
+    19: 45,
+    20: 50,
+  },
+  desert: {},
 };
