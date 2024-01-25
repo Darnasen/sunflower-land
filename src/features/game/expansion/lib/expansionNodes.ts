@@ -115,23 +115,6 @@ export const EXPANSION_NODES: Record<Land, Nodes> = {
   23: NO_ADDITIONAL_NODES,
 };
 
-export function getBumpkinLevelRequiredForNode(
-  index: number,
-  nodeType: string
-): BumpkinLevel {
-  const key = nodeType as keyof Nodes;
-
-  let count = LAND_3_NODES[key];
-  for (let expansions = 4; expansions <= 23; ++expansions) {
-    if (count > index)
-      return EXPANSION_REQUIREMENTS[(expansions - 1) as Land]
-        .bumpkinLevel as BumpkinLevel;
-    count += EXPANSION_NODES[expansions as Land][key];
-  }
-
-  return 50 as BumpkinLevel;
-}
-
 export function getEnabledNodeCount(
   bumpkinLevel: BumpkinLevel,
   nodeType: string
